@@ -1,11 +1,7 @@
 import Banner from './Banner';
-import { render } from '@testing-library/react';
+import { renderComponent } from '../../utils/testUtils';
 
-const renderBanner = (propsOverride: any = {}) => {
-    const component = render(<Banner {...propsOverride} />);
-
-    return { ...component };
-}
+const renderBanner = renderComponent(Banner);
 
 describe('Banner', () => {
     it('renders Banner', () => {
