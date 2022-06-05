@@ -18,7 +18,6 @@ const Home: NextPage = () => {
         <About />
         {/* Skills */}
         {/* Experience */}
-        {/* Examples */}
         {/* Contact */}
       </main>
       <footer className={styles.footer}>
