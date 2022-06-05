@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import About from './components/About'
 import Banner from './components/Banner'
+import Skills from './components/Skills'
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Banner />
         <About />
-        {/* Skills */}
+        <Skills />
         {/* Experience */}
         {/* Contact */}
       </main>
