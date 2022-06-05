@@ -1,13 +1,17 @@
 export const experience_list = [
     {
-        title: 'Coterie Insurance',
-        description: 'worked for ci',
-        projects: ['Quote Flow White Labelling', 'Shared Component Library', 'Billing Center', 'Hackathon']
+        employer: 'Coterie Insurance',
+        date_from: 'December 2020',
+        date_to: 'Present',
+        description: 'Tech lead and senior engineer for the front-end horizontal.',
+        projects: ['Quote Flow White Labelling', 'Shared Component Library', 'Billing Center', 'Hackathon'],
     },
     {
-        title: 'Launch Scout',
-        description: 'worked for ls',
-        projects: ['Kroger', 'GIS Dynamics', 'Coterie Insurance']
+        employer: 'Launch Scout',
+        date_from: 'February 2018',
+        date_to: 'December 2020',
+        description: 'Engineer consultant for a variety of clients, inlcuding Kroger.com, GIS Dynamics, and Coterie Insurance',
+        projects: ['Kroger.com Seach and Product Experiences', 'Go iLawn application development', 'Quote Flow product enhancement'],
     },
 ];
 
@@ -18,8 +22,8 @@ const Experience = () => {
             <div>
                 {
                     experience_list.map(experience => (
-                        <div data-testid={ `${experience.title}-exp` } key={ experience.title }>
-                            <h3>{ experience.title }</h3>
+                        <div data-testid={ `${experience.employer}-exp` } key={ experience.employer }>
+                            <h3>{ experience.employer }</h3>
                             <p>{ experience.description }</p>
                             <ul>
                                 { experience.projects.map(project => (

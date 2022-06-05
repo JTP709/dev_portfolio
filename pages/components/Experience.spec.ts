@@ -12,7 +12,7 @@ describe('Experience', () => {
     it.each(experience_list)('renders experience list', (experience) => {
         const { getByTestId, getByText } = renderExperience();
 
-        expect(getByTestId(`${experience.title}-exp`)).toBeInTheDocument();
+        expect(getByTestId(`${experience.employer}-exp`)).toBeInTheDocument();
         expect(getByText(experience.description)).toBeInTheDocument();
 
     });
