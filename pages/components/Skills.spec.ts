@@ -9,9 +9,16 @@ describe('Skills', () => {
 
         expect(getByTestId('skills')).toBeInTheDocument();
     });
-    it.each(skills_list)('renders %p skill', (skill: string) => {
+    it.each(skills_list)('renders %p category', (skill) => {
         const { getByText } = renderSkills();
 
-        expect(getByText(skill)).toBeInTheDocument();
+        expect(getByText(skill.type)).toBeInTheDocument();
+    });
+    describe.each(skills_list)('renders', (category) => {
+        it.each(category.list)('%p skill', (skill) => {
+            const { getByText } = renderSkills();
+    
+            expect(getByText(skill)).toBeInTheDocument();
+        });
     });
 });
