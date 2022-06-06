@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, ListItem, UnorderedList } from "@chakra-ui/react";
 
 export const skills_list = [
     // Languages
@@ -57,13 +57,13 @@ const Skills = () => {
                 skills_list.map(category => (
                     <div key={ category.type }>
                         <Heading as='h3'>{ category.type }</Heading>
-                        <ul>
+                        <UnorderedList>
                             {
                                 category.list.map(skill => (
-                                    <li key={ skill[0] }>{ skill[0] }</li>
+                                    <ListItem key={ skill[0] }>{ skill[0] }</ListItem>
                                 ))
                             }
-                        </ul>
+                        </UnorderedList>
                     </div>
                 ))
             }

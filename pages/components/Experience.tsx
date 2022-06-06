@@ -1,4 +1,9 @@
-import { Heading } from "@chakra-ui/react";
+import {
+    ListItem,
+    UnorderedList,
+    Heading,
+    Text,
+  } from '@chakra-ui/react'
 
 type ExpProjects = {
     name: string;
@@ -88,16 +93,16 @@ const Experience = () => {
                             <time dateTime={ experience.date_from }>{ experience.date_from }</time>
                             {' to '}
                             <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
-                            <p>{ experience.description }</p>
-                            <ul>
+                            <Text>{ experience.description }</Text>
+                            <UnorderedList>
                                 { experience.projects.map(project => (
-                                    <li data-testid={ `${project.name}-proj` } key={ project.name }>
+                                    <ListItem data-testid={ `${project.name}-proj` } key={ project.name }>
                                         <Heading as='h4'>{ project.name }</Heading>
-                                        <p>{ project.description }</p>
+                                        <Text>{ project.description }</Text>
                                         { project.url && <a href={ project.url.href }>{ project.url.link }</a>}
-                                    </li>
+                                    </ListItem>
                                 ))}
-                            </ul>
+                            </UnorderedList>
                         </div>
                     ))
                 }

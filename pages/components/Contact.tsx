@@ -1,4 +1,8 @@
-import { Heading } from "@chakra-ui/react";
+import {
+    ListItem,
+    UnorderedList,
+    Heading,
+  } from '@chakra-ui/react'
 
 export const contact_types = {
     LINKEDIN: 'LinkedIn',
@@ -25,15 +29,15 @@ const Contact = () => {
     return (
         <section data-testid='contact'>
             <Heading as='h2'>Contact and Social</Heading>
-            <ul>
+            <UnorderedList>
                 {
                     contact_list.map(contact => (
-                        <li key={ contact.type }>
+                        <ListItem key={ contact.type }>
                             <a href={ contact.href }>{ contact.type }</a>
-                        </li>
+                        </ListItem>
                     ))
                 }
-            </ul>
+            </UnorderedList>
         </section>
     );
 };
