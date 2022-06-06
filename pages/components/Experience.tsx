@@ -84,12 +84,12 @@ export const experience_list: ExpList[] = [
 const Experience = () => {
     return (
         <section data-testid='experience'>
-            <Heading as='h2'>Experience</Heading>
+            <Heading as='h2' size='2xl'>Experience</Heading>
             <div>
                 {
                     experience_list.map(experience => (
                         <div data-testid={ `${experience.employer}-exp` } key={ experience.employer }>
-                            <Heading as='h3'>{ experience.employer }</Heading>
+                            <Heading as='h3' size='xl'>{ experience.employer }</Heading>
                             <time dateTime={ experience.date_from }>{ experience.date_from }</time>
                             {' to '}
                             <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
@@ -97,7 +97,7 @@ const Experience = () => {
                             <UnorderedList>
                                 { experience.projects.map(project => (
                                     <ListItem data-testid={ `${project.name}-proj` } key={ project.name }>
-                                        <Heading as='h4'>{ project.name }</Heading>
+                                        <Heading as='h4' size='md'>{ project.name }</Heading>
                                         <Text>{ project.description }</Text>
                                         { project.url && <a href={ project.url.href }>{ project.url.link }</a>}
                                     </ListItem>

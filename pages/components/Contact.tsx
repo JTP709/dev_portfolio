@@ -28,7 +28,7 @@ export const contact_list = [
 const Contact = () => {
     return (
         <section data-testid='contact'>
-            <Heading as='h2'>Contact and Social</Heading>
+            <Heading as='h2' size='2xl'>Contact and Social</Heading>
             <UnorderedList>
                 {
                     contact_list.map(contact => (

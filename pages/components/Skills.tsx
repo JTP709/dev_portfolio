@@ -52,11 +52,11 @@ export const skills_list = [
 const Skills = () => {
     return (
         <section data-testid='skills'>
-            <Heading as='h2'>Skills</Heading>
+            <Heading as='h2' size='2xl'>Skills</Heading>
             {
                 skills_list.map(category => (
                     <div key={ category.type }>
-                        <Heading as='h3'>{ category.type }</Heading>
+                        <Heading as='h3' size='xl'>{ category.type }</Heading>
                         <UnorderedList>
                             {
                                 category.list.map(skill => (

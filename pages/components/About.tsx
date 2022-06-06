@@ -3,7 +3,7 @@ import { Heading, Text } from "@chakra-ui/react";
 const About = () => {
     return (
         <section data-testid='about'>
-            <Heading as='h2'>About Me</Heading>
+            <Heading as='h2' size='2xl'>About Me</Heading>
             <Text>
                 Hello, there! I&apos;m Jon Prell, a senior software engineer with <a href='https//www.coterieinsurance.com'>Coterie Insurance</a>.{' '}
                 I have full-stack experience, though have been mostly focused on front-end development building React applications of all sizes{' '}
