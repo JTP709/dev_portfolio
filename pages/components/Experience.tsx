@@ -76,7 +76,7 @@ export const experience_list: ExpList[] = [
 
 const Experience = () => {
     return (
-        <div data-testid='experience'>
+        <section data-testid='experience'>
             <h2>Experience</h2>
             <div>
                 {
@@ -100,7 +100,7 @@ const Experience = () => {
                     ))
                 }
             </div>
-        </div>
+        </section>
     );
 };
 

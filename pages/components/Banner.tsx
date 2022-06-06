@@ -1,8 +1,8 @@
 const Banner = () => {
     return (
-        <div data-testid='banner'>
+        <section data-testid='banner'>
             <h1>Jon Prell</h1>
-        </div>
+        </section>
     );
 };
 

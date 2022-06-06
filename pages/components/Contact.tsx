@@ -21,7 +21,7 @@ export const contact_list = [
 
 const Contact = () => {
     return (
-        <div data-testid='contact'>
+        <section data-testid='contact'>
             <h2>Contact and Social</h2>
             <ul>
                 {
@@ -32,7 +32,7 @@ const Contact = () => {
                     ))
                 }
             </ul>
-        </div>
+        </section>
     );
 };
 

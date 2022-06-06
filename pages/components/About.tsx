@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div data-testid='about'>
+        <section data-testid='about'>
             <h2>About Me</h2>
             <p>
                 Hello,there! I&apos;m Jon Prell, a senior software engineer with <a href='https//www.coterieinsurance.com'>Coterie Insurance</a>.{' '}
@@ -12,7 +12,7 @@ const About = () => {
                 After growing up in the Kentucky, we took advantage of remote work and relocated to Denver, Colorado.{' '}
                 We love to spend our week nights playing video games or watching movies, and our weekends hiking, camping, or off-roading in the Colorado mountians.
             </p>
-        </div>
+        </section>
     )
 };
 

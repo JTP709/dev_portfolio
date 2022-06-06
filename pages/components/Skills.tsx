@@ -49,7 +49,7 @@ export const skills_list = [
 
 const Skills = () => {
     return (
-        <div data-testid='skills'>
+        <section data-testid='skills'>
             <h2>Skills</h2>
             {
                 skills_list.map(category => (
@@ -65,7 +65,7 @@ const Skills = () => {
                     </div>
                 ))
             }
-        </div>
+        </section>
     );
 };
 
