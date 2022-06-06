@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import About from './components/About'
 import Banner from './components/Banner'
+import Contact from './components/Contact'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
 
@@ -20,7 +21,7 @@ const Home: NextPage = () => {
         <About />
         <Skills />
         <Experience />
-        {/* Contact */}
+        <Contact />
       </main>
       <footer className={styles.footer}>
       </footer>
