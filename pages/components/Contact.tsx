@@ -1,3 +1,5 @@
+import { Heading } from "@chakra-ui/react";
+
 export const contact_types = {
     LINKEDIN: 'LinkedIn',
     GITHUB: 'Github',
@@ -22,7 +24,7 @@ export const contact_list = [
 const Contact = () => {
     return (
         <section data-testid='contact'>
-            <h2>Contact and Social</h2>
+            <Heading as='h2'>Contact and Social</Heading>
             <ul>
                 {
                     contact_list.map(contact => (

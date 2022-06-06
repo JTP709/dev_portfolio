@@ -1,3 +1,5 @@
+import { Heading } from "@chakra-ui/react";
+
 type ExpProjects = {
     name: string;
     description: string;
@@ -77,12 +79,12 @@ export const experience_list: ExpList[] = [
 const Experience = () => {
     return (
         <section data-testid='experience'>
-            <h2>Experience</h2>
+            <Heading as='h2'>Experience</Heading>
             <div>
                 {
                     experience_list.map(experience => (
                         <div data-testid={ `${experience.employer}-exp` } key={ experience.employer }>
-                            <h3>{ experience.employer }</h3>
+                            <Heading as='h3'>{ experience.employer }</Heading>
                             <time dateTime={ experience.date_from }>{ experience.date_from }</time>
                             {' to '}
                             <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
@@ -90,7 +92,7 @@ const Experience = () => {
                             <ul>
                                 { experience.projects.map(project => (
                                     <li data-testid={ `${project.name}-proj` } key={ project.name }>
-                                        <h4>{ project.name }</h4>
+                                        <Heading as='h4'>{ project.name }</Heading>
                                         <p>{ project.description }</p>
                                         { project.url && <a href={ project.url.href }>{ project.url.link }</a>}
                                     </li>

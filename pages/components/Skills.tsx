@@ -1,3 +1,5 @@
+import { Heading } from "@chakra-ui/react";
+
 export const skills_list = [
     // Languages
     {
@@ -50,11 +52,11 @@ export const skills_list = [
 const Skills = () => {
     return (
         <section data-testid='skills'>
-            <h2>Skills</h2>
+            <Heading as='h2'>Skills</Heading>
             {
                 skills_list.map(category => (
                     <div key={ category.type }>
-                        <h3>{ category.type }</h3>
+                        <Heading as='h3'>{ category.type }</Heading>
                         <ul>
                             {
                                 category.list.map(skill => (

@@ -1,7 +1,9 @@
+import { Heading } from "@chakra-ui/react";
+
 const Banner = () => {
     return (
         <section data-testid='banner'>
-            <h1>Jon Prell</h1>
+            <Heading as='h1'>Jon Prell</Heading>
         </section>
     );
 };
