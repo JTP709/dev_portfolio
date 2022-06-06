@@ -20,7 +20,7 @@ describe('Experience', () => {
         it.each(experience.projects)('', (project) => {
             const { getByTestId } = renderExperience();
     
-            expect(getByTestId(`${project}-proj`)).toBeInTheDocument();
+            expect(getByTestId(`${project.name}-proj`)).toBeInTheDocument();
         });
     });
 });
