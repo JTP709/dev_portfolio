@@ -3,7 +3,7 @@ const About = () => {
         <section data-testid='about'>
             <h2>About Me</h2>
             <p>
-                Hello,there! I&apos;m Jon Prell, a senior software engineer with <a href='https//www.coterieinsurance.com'>Coterie Insurance</a>.{' '}
+                Hello, there! I&apos;m Jon Prell, a senior software engineer with <a href='https//www.coterieinsurance.com'>Coterie Insurance</a>.{' '}
                 I have full-stack experience, though have been mostly focused on front-end development building React applications of all sizes{' '}
                 From early stage start-ups to Fortune 500 companies, I have written production quality code for all shapes and sizes.
             </p>
