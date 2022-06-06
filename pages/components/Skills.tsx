@@ -51,7 +51,7 @@ export const skills_list = [
 
 const Skills = () => {
     return (
-        <Box data-testid='skills' as='section'>
+        <Box data-testid='skills' as='section' minHeight='100vh'>
             <Heading as='h2' size='2xl'>Skills</Heading>
             {
                 skills_list.map(category => (

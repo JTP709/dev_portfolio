@@ -28,7 +28,7 @@ export const contact_list = [
 
 const Contact = () => {
     return (
-        <Box data-testid='contact' as='section'>
+        <Box data-testid='contact' as='section' minHeight='100vh'>
             <Heading as='h2' size='2xl'>Contact and Social</Heading>
             <UnorderedList>
                 {

@@ -84,7 +84,7 @@ export const experience_list: ExpList[] = [
 
 const Experience = () => {
     return (
-        <Box data-testid='experience' as='section'>
+        <Box data-testid='experience' as='section' minHeight='100vh'>
             <Heading as='h2' size='2xl'>Experience</Heading>
             <div>
                 {
