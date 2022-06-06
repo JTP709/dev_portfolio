@@ -2,41 +2,34 @@ import { NavItem } from "./types/interfaces";
 
 export const NAV_ITEMS: Array<NavItem> = [
     {
-        label: 'Inspiration',
-        children: [
-        {
-            label: 'Explore Design Work',
-            subLabel: 'Trending Design to inspire you',
-            href: '#',
-        },
-        {
-            label: 'New & Noteworthy',
-            subLabel: 'Up-and-coming Designers',
-            href: '#',
-        },
-        ],
+        label: 'Home',
+        href: '#'
     },
     {
-        label: 'Find Work',
+        label: 'About Me',
+        href: '#'
+    },
+    {
+        label: 'Skills',
+        href: '#'
+    },
+    {
+        label: 'Experience',
         children: [
         {
-            label: 'Job Board',
+            label: 'Coterie Insurance',
             subLabel: 'Find your dream design job',
             href: '#',
         },
         {
-            label: 'Freelance Projects',
+            label: 'Launch Scout',
             subLabel: 'An exclusive list for contract work',
             href: '#',
         },
         ],
     },
     {
-        label: 'Learn Design',
-        href: '#',
-    },
-    {
-        label: 'Hire Designers',
+        label: 'Contact & Social',
         href: '#',
     },
 ];
