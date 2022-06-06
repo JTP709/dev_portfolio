@@ -6,6 +6,7 @@ import About from './components/About'
 import Banner from './components/Banner'
 import Contact from './components/Contact'
 import Experience from './components/Experience'
+import Navigation from './components/navigation/Navigation'
 import Skills from './components/Skills'
 
 const Home: NextPage = () => {
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Navigation />
         <Banner />
         <About />
         <Skills />

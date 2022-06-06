@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from "@chakra-ui/react";
 import theme from "../pages/components/theme";
 
@@ -10,5 +11,7 @@ export const renderComponent = (Component: React.ComponentType) => (propsOverrid
         </ThemeProvider>
     );
 
-    return { ...component };
+    const user = userEvent.setup();
+
+    return { ...component, user };
 };
