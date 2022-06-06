@@ -2,6 +2,7 @@ import {
     ListItem,
     UnorderedList,
     Heading,
+    Box,
   } from '@chakra-ui/react'
 
 export const contact_types = {
@@ -27,7 +28,7 @@ export const contact_list = [
 
 const Contact = () => {
     return (
-        <section data-testid='contact'>
+        <Box data-testid='contact' as='section'>
             <Heading as='h2' size='2xl'>Contact and Social</Heading>
             <UnorderedList>
                 {
@@ -38,7 +39,7 @@ const Contact = () => {
                     ))
                 }
             </UnorderedList>
-        </section>
+        </Box>
     );
 };
 

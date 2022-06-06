@@ -1,4 +1,4 @@
-import { Heading, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Box, Heading, ListItem, UnorderedList } from "@chakra-ui/react";
 
 export const skills_list = [
     // Languages
@@ -51,7 +51,7 @@ export const skills_list = [
 
 const Skills = () => {
     return (
-        <section data-testid='skills'>
+        <Box data-testid='skills' as='section'>
             <Heading as='h2' size='2xl'>Skills</Heading>
             {
                 skills_list.map(category => (
@@ -67,7 +67,7 @@ const Skills = () => {
                     </div>
                 ))
             }
-        </section>
+        </Box>
     );
 };
 

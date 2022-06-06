@@ -3,6 +3,7 @@ import {
     UnorderedList,
     Heading,
     Text,
+    Box,
   } from '@chakra-ui/react'
 
 type ExpProjects = {
@@ -83,7 +84,7 @@ export const experience_list: ExpList[] = [
 
 const Experience = () => {
     return (
-        <section data-testid='experience'>
+        <Box data-testid='experience' as='section'>
             <Heading as='h2' size='2xl'>Experience</Heading>
             <div>
                 {
@@ -107,7 +108,7 @@ const Experience = () => {
                     ))
                 }
             </div>
-        </section>
+        </Box>
     );
 };
 

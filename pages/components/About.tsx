@@ -1,8 +1,8 @@
-import { Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 const About = () => {
     return (
-        <section data-testid='about'>
+        <Box data-testid='about' as='section'>
             <Heading as='h2' size='2xl'>About Me</Heading>
             <Text>
                 Hello, there! I&apos;m Jon Prell, a senior software engineer with <a href='https//www.coterieinsurance.com'>Coterie Insurance</a>.{' '}
@@ -14,7 +14,7 @@ const About = () => {
                 After growing up in the Kentucky, we took advantage of remote work and relocated to Denver, Colorado.{' '}
                 We love to spend our week nights playing video games or watching movies, and our weekends hiking, camping, or off-roading in the Colorado mountians.
             </Text>
-        </section>
+        </Box>
     )
 };
 
