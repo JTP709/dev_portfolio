@@ -123,7 +123,7 @@ const Experience = () => {
                                 <time dateTime={ experience.date_from }>{ experience.date_from }</time>
                                 {' to '}
                                 <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
-                                <Text>{ experience.description }</Text>
+                                { experience.description }
                                 <AccordionButton>
                                     See Projects
                                     <AccordionIcon/>
