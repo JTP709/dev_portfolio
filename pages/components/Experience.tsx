@@ -4,7 +4,15 @@ import {
     Heading,
     Text,
     Box,
+    Accordion,
+    AccordionItem,
+    Button,
+    AccordionButton,
+    AccordionIcon,
+    AccordionPanel,
+    Flex,
   } from '@chakra-ui/react'
+import React from 'react';
 
 type ExpProjects = {
     name: string;
@@ -20,7 +28,7 @@ type ExpList = {
     id: string;
     date_from: string;
     date_to: string;
-    description: string;
+    description: JSX.Element[];
     projects: ExpProjects[];
 };
 
@@ -30,7 +38,13 @@ export const experience_list: ExpList[] = [
         id:'coterie_insurance',
         date_from: '2020-12',
         date_to: 'Present',
-        description: 'Tech lead and senior engineer for the front-end horizontal.',
+        description: [
+            <Text key='a'>Tech Lead for the front-end horizontal on the Payment’s scrum team.</Text>,
+            <Text key='b'>Responsible for setting the technical direction for the Quote Flow and Billing Center products, determining priority of technical debt, and improving logging for error reduction efforts.</Text>,
+            <Text key='c'>Collaborate  with Product Management, UI/UX Designers, back-end engineers, SDETs, and DevOps in an agile environment to deliver new features and improve upon our existing experiences.</Text>,
+            <Text key='d'>Serving as a Core Coach for junior and mid-level engineers to support their professional development through one-on-one sessions and pair programming.</Text>,
+            <Text key='e'>Partner with the API Staff Engineering to design the front-end architecture so as to deliver on immediate and future product goals.</Text>,
+        ],
         projects: [
             {
                 name: 'Quote Flow White Labelling',
@@ -55,7 +69,13 @@ export const experience_list: ExpList[] = [
         id:'launch_scout',
         date_from: '2018-2',
         date_to: '2020-12',
-        description: 'Engineer consultant for a variety of clients, inlcuding Kroger.com, GIS Dynamics, and Coterie Insurance',
+        description: [
+            <Text key='a'>Worked as a consultant and contractor for over 2 years on an agile software team in the Customer Experience Web space for Kroger Digital, as a consultant for GIS Dynamics for 3 months, and staff augmentation for Coterie Insurance for 2 months.</Text>,
+            <Text key='b'>Responsible for the product and search experience products for Kroger and Kroger banners, the tech lead for GIS Dynamics Go iLawn product, and product enhancement for Coterie’s Quote Flow application.</Text>,
+            <Text key='c'>Led efforts to improve page performance, port legacy apps to modern SPA platforms, ensure a11y compliance, and iterate on data analytics.</Text>,
+            <Text key='d'>Served in a 24/7 on-call production support rotation to address critical bugs and emergencies that would directly affect the user experience.</Text>,
+            <Text key='e'>Served as a Career Development Manager for the development team, mentoring peer developers with career guidance and professional growth.</Text>,
+        ],
         projects: [
             {
                 name: 'Kroger.com Seach and Product Experiences',
@@ -87,31 +107,44 @@ export const experience_list: ExpList[] = [
 
 const Experience = () => {
     return (
-        <Box data-testid='experience' as='section' minHeight='100vh'>
-            <Heading as='h2' size='2xl'>Experience</Heading>
-            <div>
+        <Flex data-testid='experience' as='section' minHeight='100vh' flexDirection='column'>
+            <Heading as='h2' size='2xl' flex='0 1 auto'>Experience</Heading>
+            <Accordion allowToggle flex='1 1 auto' display='flex' flexDirection='column' justifyContent='space-around'>
                 {
                     experience_list.map(experience => (
-                        <div data-testid={ `${experience.employer}-exp` } id={ experience.id } key={ experience.employer }>
-                            <Heading as='h3' size='xl'>{ experience.employer }</Heading>
-                            <time dateTime={ experience.date_from }>{ experience.date_from }</time>
-                            {' to '}
-                            <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
-                            <Text>{ experience.description }</Text>
-                            <UnorderedList>
-                                { experience.projects.map(project => (
-                                    <ListItem data-testid={ `${project.name}-proj` } key={ project.name }>
-                                        <Heading as='h4' size='md'>{ project.name }</Heading>
-                                        <Text>{ project.description }</Text>
-                                        { project.url && <a href={ project.url.href }>{ project.url.link }</a>}
-                                    </ListItem>
-                                ))}
-                            </UnorderedList>
-                        </div>
+                        <Flex
+                            data-testid={ `${experience.employer}-exp` }
+                            id={ experience.id }
+                            key={ experience.employer }
+                            flex='1 1 auto'
+                        >
+                            <AccordionItem>
+                                <Heading as='h3' size='xl'>{ experience.employer }</Heading>
+                                <time dateTime={ experience.date_from }>{ experience.date_from }</time>
+                                {' to '}
+                                <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
+                                <Text>{ experience.description }</Text>
+                                <AccordionButton>
+                                    See Projects
+                                    <AccordionIcon/>
+                                </AccordionButton>
+                                <AccordionPanel>
+                                    <UnorderedList>
+                                        { experience.projects.map(project => (
+                                            <ListItem data-testid={ `${project.name}-proj` } key={ project.name }>
+                                                <Heading as='h4' size='md'>{ project.name }</Heading>
+                                                <Text>{ project.description }</Text>
+                                                { project.url && <a href={ project.url.href }>{ project.url.link }</a>}
+                                            </ListItem>
+                                        ))}
+                                    </UnorderedList>
+                                </AccordionPanel>
+                            </AccordionItem>
+                        </Flex>
                     ))
                 }
-            </div>
-        </Box>
+            </Accordion>
+        </Flex>
     );
 };
 
