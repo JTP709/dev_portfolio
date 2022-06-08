@@ -4,6 +4,7 @@ const Banner = () => {
     return (
         <Flex
             data-testid='banner'
+            id='banner'
             as='section'
             minHeight='100vh'
             alignItems="center"

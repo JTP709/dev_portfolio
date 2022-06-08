@@ -2,7 +2,7 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 const About = () => {
     return (
-        <Flex data-testid='about' as='section' minHeight='100vh' direction={['column', 'row']}>
+        <Flex id='about' data-testid='about' as='section' minHeight='100vh' direction={['column', 'row']}>
             <Box height='20vh' bgGradient='linear(to-r, green.200, pink.500)' display={['block', 'none']}>
             </Box>
             <Box width={['100vw', '50vw']}>

@@ -1,5 +1,9 @@
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons";
-import { Collapse, Flex, Link, Stack, Text, useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import { Collapse, Flex, Stack, Text, useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import React from "react";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import ConditionalScrollLink from "./ConditionalScrollLink";
+
 import { NavItem } from "./types/interfaces";
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
@@ -7,30 +11,31 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 
     return (
         <Stack spacing={4} onClick={children && onToggle}>
-            <Flex
-                py={2}
-                as={Link}
-                href={href ?? '#'}
-                justify={'space-between'}
-                align={'center'}
-                _hover={{ textDecoration: 'none' }}
-            >
-                <Text
-                    fontWeight={600}
-                    color={useColorModeValue('gray.600', 'gray.200')}
+            <ConditionalScrollLink to={Boolean(children) ? undefined : href}>
+                <Flex
+                    py={2}
+                    justify={'space-between'}
+                    align={'center'}
+                    _hover={{ textDecoration: 'none' }}
                 >
-                    {label}
-                </Text>
-                    {children && (
-                        <Icon
-                            as={ChevronDownIcon}
-                            transition={'all .25s ease-in-out'}
-                            transform={isOpen ? 'rotate(180deg)' : ''}
-                            w={6}
-                            h={6}
-                        />
-                    )}
-            </Flex>
+                    <Text
+                        fontWeight={600}
+                        color={useColorModeValue('gray.600', 'gray.200')}
+                        as='button'
+                    >
+                        {label}
+                    </Text>
+                        {children && (
+                            <Icon
+                                as={ChevronDownIcon}
+                                transition={'all .25s ease-in-out'}
+                                transform={isOpen ? 'rotate(180deg)' : ''}
+                                w={6}
+                                h={6}
+                            />
+                        )}
+                </Flex>
+            </ConditionalScrollLink>
 
             <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
                 <Stack
@@ -43,9 +48,19 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                 >
                     {children &&
                         children.map((child) => (
-                            <Link key={child.label} py={2} href={child.href}>
-                                {child.label}
-                            </Link>
+                            <ScrollLink
+                                key={child.label} 
+                                activeClass="active"
+                                to={child.href ?? '#'}
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                            >
+                                <Text py={2} as='button'>
+                                    {child.label}
+                                </Text>
+                            </ScrollLink>
                         )
                     )}
                 </Stack>

@@ -3,15 +3,15 @@ import { NavItem } from "./types/interfaces";
 export const NAV_ITEMS: Array<NavItem> = [
     {
         label: 'Home',
-        href: '#'
+        href: 'banner'
     },
     {
         label: 'About Me',
-        href: '#'
+        href: 'about'
     },
     {
         label: 'Skills',
-        href: '#'
+        href: 'skills'
     },
     {
         label: 'Experience',
@@ -19,17 +19,17 @@ export const NAV_ITEMS: Array<NavItem> = [
         {
             label: 'Coterie Insurance',
             subLabel: 'Find your dream design job',
-            href: '#',
+            href: 'coterie_insurance',
         },
         {
             label: 'Launch Scout',
             subLabel: 'An exclusive list for contract work',
-            href: '#',
+            href: 'launch_scout',
         },
         ],
     },
     {
         label: 'Contact & Social',
-        href: '#',
+        href: 'contact',
     },
 ];

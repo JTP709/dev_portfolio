@@ -17,6 +17,7 @@ type ExpProjects = {
 
 type ExpList = {
     employer: string;
+    id: string;
     date_from: string;
     date_to: string;
     description: string;
@@ -26,6 +27,7 @@ type ExpList = {
 export const experience_list: ExpList[] = [
     {
         employer: 'Coterie Insurance',
+        id:'coterie_insurance',
         date_from: '2020-12',
         date_to: 'Present',
         description: 'Tech lead and senior engineer for the front-end horizontal.',
@@ -50,6 +52,7 @@ export const experience_list: ExpList[] = [
     },
     {
         employer: 'Launch Scout',
+        id:'launch_scout',
         date_from: '2018-2',
         date_to: '2020-12',
         description: 'Engineer consultant for a variety of clients, inlcuding Kroger.com, GIS Dynamics, and Coterie Insurance',
@@ -89,7 +92,7 @@ const Experience = () => {
             <div>
                 {
                     experience_list.map(experience => (
-                        <div data-testid={ `${experience.employer}-exp` } key={ experience.employer }>
+                        <div data-testid={ `${experience.employer}-exp` } id={ experience.id } key={ experience.employer }>
                             <Heading as='h3' size='xl'>{ experience.employer }</Heading>
                             <time dateTime={ experience.date_from }>{ experience.date_from }</time>
                             {' to '}
