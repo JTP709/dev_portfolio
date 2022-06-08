@@ -1,4 +1,4 @@
-import { Box, Heading, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Box, Flex, Heading, ListItem, UnorderedList } from "@chakra-ui/react";
 
 export const skills_list = [
     // Languages
@@ -51,23 +51,29 @@ export const skills_list = [
 
 const Skills = () => {
     return (
-        <Box data-testid='skills' id='skills' as='section' minHeight='100vh'>
-            <Heading as='h2' size='2xl'>Skills</Heading>
-            {
-                skills_list.map(category => (
-                    <div key={ category.type }>
-                        <Heading as='h3' size='xl'>{ category.type }</Heading>
-                        <UnorderedList>
-                            {
-                                category.list.map(skill => (
-                                    <ListItem key={ skill[0] }>{ skill[0] }</ListItem>
-                                ))
-                            }
-                        </UnorderedList>
-                    </div>
-                ))
-            }
-        </Box>
+        <Flex data-testid='experience' as='section' minHeight='100vh' direction={['column', 'row']}>
+            <Box height='20vh' bgGradient='linear(to-r, green.200, pink.500)' display={['block', 'none']}>
+            </Box>
+            <Box width='50vw' bgGradient='linear(to-r, green.200, pink.500)' display={['none', 'block']}>
+            </Box>
+            <Box width={['100vw', '50vw']}>
+                <Heading as='h2' size='2xl'>Skills</Heading>
+                {
+                    skills_list.map(category => (
+                        <div key={ category.type }>
+                            <Heading as='h3' size='xl'>{ category.type }</Heading>
+                            <UnorderedList>
+                                {
+                                    category.list.map(skill => (
+                                        <ListItem key={ skill[0] }>{ skill[0] }</ListItem>
+                                    ))
+                                }
+                            </UnorderedList>
+                        </div>
+                    ))
+                }
+            </Box>
+        </Flex>
     );
 };
 
