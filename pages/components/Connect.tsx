@@ -71,12 +71,13 @@ const Connect = () => {
                           key={item.type}
                           as='a'
                           href={item.href}
+                          target="_blank"
                           bgColor={item.bgColor}
                           borderRadius='4px'
                           padding='1em'
                           margin='16px 0'
                           height='80px'
-                          width='160px'
+                          width={['100%', '160px']}
                         >
                           { item.icon(iconColor) }
                         </Button>
