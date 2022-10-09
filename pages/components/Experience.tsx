@@ -121,7 +121,7 @@ export const experience_list: ExpList[] = [
 ];
 
 const Experience = () => {
-    const { primary, secondary, btnHover, hrColor } = useThemeColors();
+    const { primary, secondary, btnHover } = useThemeColors();
 
     return (
         <Flex

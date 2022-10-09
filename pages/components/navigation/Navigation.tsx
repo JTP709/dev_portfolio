@@ -29,6 +29,7 @@ export default function Navigation() {
             position='fixed'
             top={0}
             width='100%'
+            zIndex={999}
         >
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
