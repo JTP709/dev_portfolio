@@ -1,6 +1,6 @@
+import { DownloadIcon } from '@chakra-ui/icons';
 import {
     ListItem,
-    UnorderedList,
     Heading,
     Text,
     Box,
@@ -10,14 +10,18 @@ import {
     AccordionIcon,
     AccordionPanel,
     Flex,
-    useColorModeValue,
+    List,
+    Tag,
+    Button,
+    Divider,
   } from '@chakra-ui/react'
 import React from 'react';
-import useThemeColor, { THEME_KEYS } from '../hooks/useThemeColor';
+import useThemeColors from '../hooks/useThemeColors';
 
 type ExpProjects = {
     name: string;
     description: string;
+    tech: string[];
     url?: {
         href: string;
         link: string;
@@ -52,18 +56,22 @@ export const experience_list: ExpList[] = [
             {
                 name: 'Quote Flow White Labelling',
                 description: 'Complete refactor of the theming structure for Quote Flow, Coterie Insurance’s Direct to Business insurance sales application, to allow business partner’s to sell Coterie’s insurance on their websites with their branding experience.',
+                tech: ['TypeScript', 'React', 'Redux', 'Cypress.io', 'Jest', 'react-testing-library'],
             },
             {
                 name: 'Shared Component Library',
                 description: 'Consolidating our various UI components across all of our front-end applications into a single shared library that conforms to our style guide. Mono-repo that also includes a Storybook application  to provide designers and developers a component sandbox environment.',
+                tech: ['TypeScript', 'React', 'Storybook','Jest', 'react-testing-library'],
             },
             {
                 name: 'Billing Center',
                 description: 'Built using the Next.js to leverage server and static rendering for faster page load times, SEO, and to implement an API layer that is tailored to the client application. Leveraged Docker and Kubernetes to unlock a “build-once, deploy everywhere” devops pattern.',
+                tech: ['TypeScript', 'React', 'Next.js', 'Cypress.io', 'Jest', 'react-testing-library'],
             },
             {
                 name: 'Hackathon PWA Location Quoting App',
                 description: 'Progressive Web App built to leverage Coterie’s insurance quoting engine with location APIs in a mobile first experience. Created during a 3 day company Hackathon event with over a dozen self organizing teams across the engineering organization. Our team took home the gold and was voted the winner of Hackathon 2022.',
+                tech: ['TypeScript', 'React', 'PWA', 'Jest', 'react-testing-library'],
             },
         ],
     },
@@ -88,6 +96,7 @@ export const experience_list: ExpList[] = [
                     href: 'https://www.kroger.com',
                     link: 'Kroger.com'
                 },
+                tech: ['JavaScript', 'React', 'Redux', 'Jest', 'Enzyme', 'Java', 'Kotlin'],
             },
             {
                 name: 'Go iLawn application development',
@@ -96,6 +105,7 @@ export const experience_list: ExpList[] = [
                     href: 'https://goilawn.com/',
                     link: 'goilawn.com'
                 },
+                tech: ['JavaScript', 'React', 'Redux', 'Ruby', 'Ruby on Rails', 'Jest', 'Enzyme'],
             },
             {
                 name: 'Quote Flow product enhancement',
@@ -104,16 +114,14 @@ export const experience_list: ExpList[] = [
                     href: 'https://quote.coterieinsurance.com/',
                     link: 'Quote Flow'
                 },
+                tech: ['TypeScript', 'React', 'Redux', 'Cypress.io', 'Jest', 'react-testing-library'],
             }
         ],
     },
 ];
 
 const Experience = () => {
-    const accordionBtn = useColorModeValue('pink.500', 'purple.500');
-    const accordionBtnHover = useColorModeValue('pink.700', 'purple.700');
-    const accordionBtnColor = useColorModeValue('white', 'white');
-    const horizontalRuleColor = useThemeColor(THEME_KEYS.COLOR);
+    const { primary, secondary, btnHover, hrColor } = useThemeColors();
 
     return (
         <Flex
@@ -129,7 +137,7 @@ const Experience = () => {
                 flex='0 1 auto'
                 margin='24px 0'
             >Experience</Heading>
-            <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={horizontalRuleColor} />
+            <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
             <Accordion allowToggle flex='1 1 auto' display='flex' flexDirection='column' justifyContent='space-around'>
                 {
                     experience_list.map(experience => (
@@ -150,32 +158,53 @@ const Experience = () => {
                                 </Box>
                                 <AccordionButton
                                     width='none'
-                                    color={accordionBtnColor}
+                                    color='white'
                                     fontWeight='600'
-                                    bgColor={accordionBtn}
+                                    bgColor={primary}
                                     borderRadius='4px'
                                     marginTop='24px'
-                                    _hover={{ bg: accordionBtnHover }}
+                                    _hover={{ bg: btnHover }}
                                 >
                                     See Projects
                                 <AccordionIcon/>
                                 </AccordionButton>
                                 <AccordionPanel>
-                                    <UnorderedList>
+                                    <List>
                                         { experience.projects.map(project => (
                                             <ListItem data-testid={ `${project.name}-proj` } key={ project.name } maxWidth={['100%', '60%']}>
                                                 <Heading as='h4' size='md' margin='12px 0'>{ project.name }</Heading>
                                                 <Text margin='12px'>{ project.description }</Text>
-                                                { project.url && <a href={ project.url.href }>{ project.url.link }</a>}
+                                                <Text margin='12px'>{ project.url && <a href={ project.url.href }>{ project.url.link }</a>}</Text>
+                                                <Box margin='12px'>
+                                                    { project.tech.map(tech => {
+                                                        return (
+                                                            <Tag
+                                                                key={ tech }
+                                                                size='lg'
+                                                                bgColor={ secondary }
+                                                                color='black'
+                                                                variant='solid'
+                                                                margin='0 4px 4px 0'
+                                                            >{ tech }</Tag>
+                                                        )}
+                                                    )}
+                                                </Box>
                                             </ListItem>
                                         ))}
-                                    </UnorderedList>
+                                    </List>
                                 </AccordionPanel>
                             </AccordionItem>
                         </Flex>
                     ))
                 }
             </Accordion>
+            <Divider marginTop='56px' />
+            <Flex justifyContent='center' margin='56px 0 32px'>
+                <Button as='a' bgColor={primary} color='white' _hover={{ bg: btnHover }} href={'/Jon_Prell_Resume.pdf'}>
+                    <DownloadIcon h={6} w={6} paddingRight='8px' />
+                    Download Resume
+                </Button>
+            </Flex>
         </Flex>
     );
 };

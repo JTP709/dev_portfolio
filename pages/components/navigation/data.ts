@@ -14,12 +14,12 @@ export const NAV_ITEMS: Array<NavItem> = [
         children: [
         {
             label: 'Coterie Insurance',
-            subLabel: 'Find your dream design job',
+            subLabel: 'Small business insurance start-up',
             href: 'coterie_insurance',
         },
         {
             label: 'Launch Scout',
-            subLabel: 'An exclusive list for contract work',
+            subLabel: 'Custom software consultancy',
             href: 'launch_scout',
         },
         ],
@@ -29,7 +29,11 @@ export const NAV_ITEMS: Array<NavItem> = [
         href: 'skills'
     },
     {
+        label: 'Work',
+        href: 'work',
+    },
+    {
         label: 'Connect',
-        href: 'contact',
+        href: 'connect',
     },
 ];

@@ -2,8 +2,11 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Box, Flex, Icon, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { NavItem } from "./types/interfaces";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import useThemeColors from "../../hooks/useThemeColors";
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+    const { navHover, } = useThemeColors();
+
     return (
         <ScrollLink
             activeClass="active"
@@ -18,13 +21,12 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                 display={'block'}
                 p={2}
                 rounded={'md'}
-                _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
             >
                 <Stack direction={'row'} align={'center'}>
                     <Box>
                         <Text
                             transition={'all .3s ease'}
-                            _groupHover={{ color: 'pink.400' }}
+                            _groupHover={{ color: navHover }}
                             fontWeight={500}
                             cursor='pointer'
                             as='button'
@@ -42,7 +44,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                         align={'center'}
                         flex={1}
                     >
-                        <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+                        <Icon color={navHover} w={5} h={5} as={ChevronRightIcon} />
                     </Flex>
                 </Stack>
             </Box>

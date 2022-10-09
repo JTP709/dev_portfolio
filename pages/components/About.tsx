@@ -1,8 +1,9 @@
 import { Box, Flex, Heading, Text, useColorModeValue } from "@chakra-ui/react";
-import useThemeColor, { THEME_KEYS } from '../hooks/useThemeColor';
+import useThemeColors from "../hooks/useThemeColors";
+import useThemeColor from '../hooks/useThemeColors';
 
 const About = () => {
-    const horizontalRuleColor = useThemeColor(THEME_KEYS.COLOR);
+    const { primary } = useThemeColors();
 
     return (
         <Flex
@@ -17,12 +18,12 @@ const About = () => {
             <Box
                 width={[null, '60vw']}
                 margin={['auto 32px', 'auto 0 auto 32px', ]}
-                padding='32px'
+                padding='32px 32px 56px'
                 bgColor={useColorModeValue('white', 'gray.800')}
                 borderRadius='6px'
             >
                 <Heading as='h2' size='2xl' margin='24px 0'>About Me</Heading>
-                <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={horizontalRuleColor} />
+                <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
                 <Text margin='32px 0'>
                     Hello, there! I&apos;m Jon Prell, a senior software engineer with <a href='https//www.coterieinsurance.com'>Coterie Insurance</a>.{' '}
                     I have full-stack experience, though have been mostly focused on front-end development building React applications of all sizes.{' '}
