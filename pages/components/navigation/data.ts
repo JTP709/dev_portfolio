@@ -7,11 +7,7 @@ export const NAV_ITEMS: Array<NavItem> = [
     },
     {
         label: 'About Me',
-        href: 'about'
-    },
-    {
-        label: 'Skills',
-        href: 'skills'
+        href: 'about',
     },
     {
         label: 'Experience',
@@ -29,7 +25,11 @@ export const NAV_ITEMS: Array<NavItem> = [
         ],
     },
     {
-        label: 'Contact & Social',
+        label: 'Skills',
+        href: 'skills'
+    },
+    {
+        label: 'Connect',
         href: 'contact',
     },
 ];
