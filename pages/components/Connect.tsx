@@ -41,7 +41,7 @@ export const connect_list = [
 ];
 
 const Connect = () => {
-    const { primary, iconColor } = useThemeColors();
+    const { primary, iconColor, gradient, btnHover } = useThemeColors();
 
     return (
         <Flex
@@ -50,15 +50,16 @@ const Connect = () => {
             as='section'
             minHeight='100vh'
             direction={['column', 'row']}
-            bgGradient={useColorModeValue('linear(to-r, green.200, pink.500)', 'linear(to-r, blue.200, purple.500)')}
+            bgGradient={gradient}
             alignContent='center'
         >
             <Box
-                margin={['32px', 'auto 32px']}
+                margin={['32px', 'auto']}
                 padding='32px'
                 bgColor={useColorModeValue('white', 'gray.800')}
                 borderRadius='6px'
                 width={[null, '100%']}
+                maxWidth='1200px'
             >
                 <Heading as='h2' size='2xl' margin='24px 0'>Connect</Heading>
                 <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
@@ -78,6 +79,7 @@ const Connect = () => {
                           margin='16px 0'
                           height='80px'
                           width={['100%', '160px']}
+                          _hover={{ bg: btnHover }}
                         >
                           { item.icon(iconColor) }
                         </Button>

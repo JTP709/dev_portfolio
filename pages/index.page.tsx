@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import About from './components/About'
 import Banner from './components/Banner'
-import Work from './components/Work'
+import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Footer from './components/Footer'
 import Navigation from './components/navigation/Navigation'
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <About />
         <Experience />
         <Skills />
-        <Work />
+        <Projects />
         <Connect />
       </main>
       <Footer />

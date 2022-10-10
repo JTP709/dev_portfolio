@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, List, ListItem, Progress, Tag, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, List, ListItem, Progress, Tag, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import useThemeColors from '../hooks/useThemeColors';
 import ChakraUiIcon from '../../assets/icons/chakraui.svg';
 import ReactIcon from '../../assets/icons/react.svg';
@@ -65,64 +65,70 @@ export const skills_list: ListItem[] = [
 ];
 
 const Skills = () => {
-    const { primary, iconColor } = useThemeColors();
+    const { primary, iconColor, gradient } = useThemeColors();
     const iconWidth = useBreakpointValue(['96px', '128px'])
 
     return (
-        <Flex
+        <Box
             id='skills'
             data-testid='experience'
             as='section'
             minHeight='100vh'
-            direction={['column', 'row']}
-            bgGradient={useColorModeValue('linear(to-r, green.200, pink.500)', 'linear(to-r, blue.200, purple.500)')}
-            justifyContent='flex-end'
-            padding={['32px 0', '64px 0']}
+            bgGradient={gradient}
+            width='100%'
         >
             <Flex
-                margin={['auto 32px', 'auto 32px auto 0']}
-                flexWrap='wrap'
-                width={[null, '40vw']}
-                justifyContent='space-evenly'
+                maxWidth='1200px'
+                margin='auto' 
+                justifyContent='flex-end'
+                padding={['32px 0', '64px 0']}
+                direction={['column', 'row']}
+                height='100%'
             >
-                <Box margin={['16px','32px']}><TypeScriptIcon width={iconWidth} fill={iconColor} /></Box>
-                <Box margin={['16px','32px']}><ReactIcon width={iconWidth} fill={iconColor} /></Box>
-                <Box margin='32px' display={['none', 'block']}><JavaScriptIcon width='128px' fill={iconColor} /></Box>
-                <Box margin={['16px','32px']}><NextIcon width={iconWidth} fill={iconColor} /></Box>
-                <Box margin='32px' display={['none', 'block']}><KotlinIcon width='128px' fill={iconColor} /></Box>
-                <Box margin='32px' display={['none', 'block']}><RubyIcon width='128px' fill={iconColor} /></Box>
-                <Box margin='32px' display={['none', 'block']}><RailsIcon width='128px' fill={iconColor} /></Box>
-                <Box margin='32px' display={['none', 'block']}><StyledComponentsIcon width='128px' fill={iconColor} /></Box>
-                <Box margin='32px' display={['none', 'block']}><ChakraUiIcon width='128px' fill={iconColor} /></Box>
+                <Flex
+                    flexWrap='wrap'
+                    width={[null, '40vw']}
+                    justifyContent='space-evenly'
+                >
+                    <Box margin={['16px','32px']}><TypeScriptIcon width={iconWidth} fill={iconColor} /></Box>
+                    <Box margin={['16px','32px']}><ReactIcon width={iconWidth} fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><JavaScriptIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin={['16px','32px']}><NextIcon width={iconWidth} fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><KotlinIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><RubyIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><RailsIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><StyledComponentsIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><ChakraUiIcon width='128px' fill={iconColor} /></Box>
+                </Flex>
+                <Box
+                    width={[null, '60vw']}
+                    margin={['auto 32px', '0']}
+                    padding='32px 32px 56px'
+                    bgColor={useColorModeValue('white', 'gray.800')}
+                    borderRadius='6px'
+                >
+                    <Heading as='h2' size='2xl' margin='24px 0'>Skills</Heading>
+                    <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
+                    {
+                        skills_list.map(category => (
+                            <div key={ category.type }>
+                                <Heading as='h3' fontSize='1.5em' margin='24px 0'>{ category.type }</Heading>
+                                <List>
+                                    {
+                                        category.list.map(skill => (
+                                            <ListItem key={ skill[0]} margin='16px 0' display='flex' flexDirection='row' justifyContent='space-between'>
+                                                <Text>{ skill[0] }</Text>
+                                                <Progress w={['50%', '75%']} marginLeft='16px' value={20*skill[1]} />
+                                            </ListItem>
+                                        ))
+                                    }
+                                </List>
+                            </div>
+                        ))
+                    }
+                </Box>
             </Flex>
-            <Box
-                width={[null, '60vw']}
-                margin={['auto 32px', 'auto 32px auto 0']}
-                padding='32px 32px 56px'
-                bgColor={useColorModeValue('white', 'gray.800')}
-                borderRadius='6px'
-            >
-                <Heading as='h2' size='2xl' margin='24px 0'>Skills</Heading>
-                <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
-                {
-                    skills_list.map(category => (
-                        <div key={ category.type }>
-                            <Heading as='h3' fontSize='1.5em' margin='24px 0'>{ category.type }</Heading>
-                            <List>
-                                {
-                                    category.list.map(skill => (
-                                        <ListItem key={ skill[0]} margin='16px 0' display='flex' flexDirection='row' justifyContent='space-between'>
-                                            <Text>{ skill[0] }</Text>
-                                            <Progress w={['50%', '75%']} marginLeft='16px' value={20*skill[1]} />
-                                        </ListItem>
-                                    ))
-                                }
-                            </List>
-                        </div>
-                    ))
-                }
-            </Box>
-        </Flex>
+        </Box>
     );
 };
 

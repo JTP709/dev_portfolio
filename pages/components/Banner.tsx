@@ -9,8 +9,22 @@ const Banner = () => {
             minHeight='100vh'
             alignItems="center"
             justifyContent="center"
+            // position='relative'
         >
-            <Heading as='h1' size='4xl'>Jon Prell</Heading>
+            <Heading
+                as='h1'
+                size='4xl'
+                // position='absolute'
+                // top='50%'
+                // left='50%'
+                // transform='translate(-50%, -50%)'
+                // bgColor='gray.800'
+                // padding='16px 64px'
+                // borderRadius='8px'
+                // textAlign='center'
+            >
+                Jon Prell
+            </Heading>
         </Flex>
     );
 };

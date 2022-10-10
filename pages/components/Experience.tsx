@@ -14,6 +14,7 @@ import {
     Tag,
     Button,
     Divider,
+    Container,
   } from '@chakra-ui/react'
 import React from 'react';
 import useThemeColors from '../hooks/useThemeColors';
@@ -131,80 +132,82 @@ const Experience = () => {
             flexDirection='column'
             padding='32px 32px 56px'
         >
-            <Heading
-                as='h2'
-                size='2xl'
-                flex='0 1 auto'
-                margin='24px 0'
-            >Experience</Heading>
-            <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
-            <Accordion allowToggle flex='1 1 auto' display='flex' flexDirection='column' justifyContent='space-around'>
-                {
-                    experience_list.map(experience => (
-                        <Flex
-                            data-testid={ `${experience.employer}-exp` }
-                            id={ experience.id }
-                            key={ experience.employer }
-                            flex='1 1 auto'
-                        >
-                            <AccordionItem border='none'>
-                                <Heading as='h3' size='xl' margin='32px 0 24px'>{ experience.employer }</Heading>
-                                <Heading as='h4' fontSize='1.5em'>{ experience.role }</Heading>
-                                <time dateTime={ experience.date_from }>{ experience.date_from }</time>
-                                {' to '}
-                                <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
-                                <Box margin='32px 0 0'>
-                                    { experience.description }
-                                </Box>
-                                <AccordionButton
-                                    width='none'
-                                    color='white'
-                                    fontWeight='600'
-                                    bgColor={primary}
-                                    borderRadius='4px'
-                                    marginTop='24px'
-                                    _hover={{ bg: btnHover }}
-                                >
-                                    See Projects
-                                <AccordionIcon/>
-                                </AccordionButton>
-                                <AccordionPanel>
-                                    <List>
-                                        { experience.projects.map(project => (
-                                            <ListItem data-testid={ `${project.name}-proj` } key={ project.name } maxWidth={['100%', '60%']}>
-                                                <Heading as='h4' size='md' margin='12px 0'>{ project.name }</Heading>
-                                                <Text margin='12px'>{ project.description }</Text>
-                                                <Text margin='12px'>{ project.url && <a href={ project.url.href }>{ project.url.link }</a>}</Text>
-                                                <Box margin='12px'>
-                                                    { project.tech.map(tech => {
-                                                        return (
-                                                            <Tag
-                                                                key={ tech }
-                                                                size='lg'
-                                                                bgColor={ secondary }
-                                                                color='black'
-                                                                variant='solid'
-                                                                margin='0 4px 4px 0'
-                                                            >{ tech }</Tag>
+            <Container maxWidth='1200px'>
+                <Heading
+                    as='h2'
+                    size='2xl'
+                    flex='0 1 auto'
+                    margin='24px 0'
+                >Experience</Heading>
+                <Box as='hr' width='64px' border={`4px solid`} borderRadius='12px' borderColor={primary} />
+                <Accordion allowToggle flex='1 1 auto' display='flex' flexDirection='column' justifyContent='space-around'>
+                    {
+                        experience_list.map(experience => (
+                            <Flex
+                                data-testid={ `${experience.employer}-exp` }
+                                id={ experience.id }
+                                key={ experience.employer }
+                                flex='1 1 auto'
+                            >
+                                <AccordionItem border='none'>
+                                    <Heading as='h3' size='xl' margin='32px 0 24px'>{ experience.employer }</Heading>
+                                    <Heading as='h4' fontSize='1.5em'>{ experience.role }</Heading>
+                                    <time dateTime={ experience.date_from }>{ experience.date_from }</time>
+                                    {' to '}
+                                    <time dateTime={ experience.date_to === 'Present' ? Date.now().toString() : experience.date_to }>{ experience.date_to }</time>
+                                    <Box margin='32px 0 0'>
+                                        { experience.description }
+                                    </Box>
+                                    <AccordionButton
+                                        width='none'
+                                        color='white'
+                                        fontWeight='600'
+                                        bgColor={primary}
+                                        borderRadius='4px'
+                                        marginTop='24px'
+                                        _hover={{ bg: btnHover }}
+                                    >
+                                        See Projects
+                                    <AccordionIcon/>
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <List>
+                                            { experience.projects.map(project => (
+                                                <ListItem data-testid={ `${project.name}-proj` } key={ project.name } maxWidth={['100%', '60%']}>
+                                                    <Heading as='h4' size='md' margin='12px 0'>{ project.name }</Heading>
+                                                    <Text margin='12px'>{ project.description }</Text>
+                                                    <Text margin='12px'>{ project.url && <a href={ project.url.href }>{ project.url.link }</a>}</Text>
+                                                    <Box margin='12px'>
+                                                        { project.tech.map(tech => {
+                                                            return (
+                                                                <Tag
+                                                                    key={ tech }
+                                                                    size='lg'
+                                                                    bgColor={ secondary }
+                                                                    color='black'
+                                                                    variant='solid'
+                                                                    margin='0 4px 4px 0'
+                                                                >{ tech }</Tag>
+                                                            )}
                                                         )}
-                                                    )}
-                                                </Box>
-                                            </ListItem>
-                                        ))}
-                                    </List>
-                                </AccordionPanel>
-                            </AccordionItem>
-                        </Flex>
-                    ))
-                }
-            </Accordion>
-            <Divider marginTop='56px' />
-            <Flex justifyContent='center' margin='56px 0 32px'>
-                <Button as='a' bgColor={primary} color='white' _hover={{ bg: btnHover }} href={'/Jon_Prell_Resume.pdf'}>
-                    <DownloadIcon h={6} w={6} paddingRight='8px' />
-                    Download Resume
-                </Button>
-            </Flex>
+                                                    </Box>
+                                                </ListItem>
+                                            ))}
+                                        </List>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                            </Flex>
+                        ))
+                    }
+                </Accordion>
+                <Divider marginTop='56px' />
+                <Flex justifyContent='center' margin='56px 0 32px'>
+                    <Button as='a' bgColor={primary} color='white' _hover={{ bg: btnHover }} href={'/Jon_Prell_Resume.pdf'}>
+                        <DownloadIcon h={6} w={6} paddingRight='8px' />
+                        Download Resume
+                    </Button>
+                </Flex>
+            </Container>
         </Flex>
     );
 };

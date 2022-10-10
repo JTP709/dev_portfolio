@@ -29,8 +29,8 @@ export const NAV_ITEMS: Array<NavItem> = [
         href: 'skills'
     },
     {
-        label: 'Work',
-        href: 'work',
+        label: 'Projects',
+        href: 'projects',
     },
     {
         label: 'Connect',
