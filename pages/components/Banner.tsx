@@ -1,6 +1,10 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
+import useThemeColors from "../hooks/useThemeColors";
+import { connect_list } from "./Connect";
 
 const Banner = () => {
+    const { iconColor, btnHover } = useThemeColors();
+
     return (
         <Flex
             data-testid='banner'
@@ -9,6 +13,7 @@ const Banner = () => {
             minHeight='100vh'
             alignItems="center"
             justifyContent="center"
+            flexDir='column'
             // position='relative'
         >
             <Heading
@@ -25,6 +30,29 @@ const Banner = () => {
             >
                 Jon Prell
             </Heading>
+            <Flex flexDir='row'>
+                {
+                        connect_list.map(item => {
+                        return (
+                            <Button
+                            key={item.type}
+                            as='a'
+                            href={item.href}
+                            target="_blank"
+                            bgColor={item.bgColor}
+                            borderRadius='4px'
+                            padding='4px'
+                            margin='12px 4px'
+                            height='32px'
+                            width={'32px'}
+                            _hover={{ bg: btnHover }}
+                            >
+                            { item.icon(iconColor, '24px') }
+                            </Button>
+                        )
+                        })
+                    }
+            </Flex>
         </Flex>
     );
 };

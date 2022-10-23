@@ -17,25 +17,25 @@ export const connect_list = [
   {
       type: connect_types.LINKEDIN,
       href: 'https://www.linkedin.com/in/jon-prell-web-dev/',
-      icon: (color: string) => <LinkedinIcon fill={color} width='72px' />,
+      icon: (color: string, width?: string) => <LinkedinIcon fill={color} width={width ?? '72px'} />,
       bgColor: '#0072b1',
   },
   {
       type: connect_types.GITHUB,
       href: 'https://github.com/JTP709/',
-      icon: (color: string) => <GithubIcon fill={color} width='72px' />,
+      icon: (color: string, width?: string) => <GithubIcon fill={color} width={width ?? '72px'} />,
       bgColor: '#6cc644',
   },
   {
       type: connect_types.TWITTER,
       href: 'https://twitter.com/JTP709',
-      icon: (color: string) => <TwitterIcon fill={color} width='72px' />,
+      icon: (color: string, width?: string) => <TwitterIcon fill={color} width={width ?? '72px'} />,
       bgColor: '#1DA1F2',
   },
   {
     type: connect_types.EMAIL,
     href: 'mailto:JTP709@gmail.com',
-    icon: (color: string) => <EmailIcon color={color} boxSize='72px' />,
+    icon: (color: string, width?: string) => <EmailIcon color={color} boxSize={width ?? '72px'} />,
     bgColor: 'red.400',
 },
 ];

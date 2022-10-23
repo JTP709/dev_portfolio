@@ -9,6 +9,9 @@ import NextIcon from '../../assets/icons/nextdotjs.svg';
 import RubyIcon from '../../assets/icons/ruby.svg';
 import RailsIcon from '../../assets/icons/rubyonrails.svg';
 import StyledComponentsIcon from '../../assets/icons/styledcomponents.svg';
+import CypressIcon from '../../assets/icons/cypress.svg';
+import ElixirIcon from '../../assets/icons/elixir.svg';
+import ExpressIcon from '../../assets/icons/express.svg';
 
 type ListItem = {
     type: string;
@@ -31,7 +34,7 @@ export const skills_list: ListItem[] = [
     },
     // Libraries/Frameworks
     {
-        type: 'Libraries/Frameworks',
+        type: 'Libraries/Frameworks/Runtimes',
         list: [
             ['React.js', 4],
             ['Redux.js', 4],
@@ -39,7 +42,18 @@ export const skills_list: ListItem[] = [
             ['Node.js', 2],
             ['Ruby on Rails', 1],
             ['Flask', 2],
-            ['Pheonix', 1],
+            ['Phoenix', 1],
+        ],
+    },
+    // Testing
+    {
+        type: 'Testing',
+        list: [
+            ['Jest', 4],
+            ['react-testing-library', 4],
+            ['Cypress.io', 3],
+            ['Enzyme', 2],
+            ['jUnit', 1],
         ],
     },
     // Web Technologies
@@ -56,10 +70,10 @@ export const skills_list: ListItem[] = [
     {
         type: 'Data Storage',
         list: [
-            ['PostgreSQL', 4],
-            ['SQLite', 3],
-            ['MongoDB', 3],
-            ['Firebase', 2],
+            ['PostgreSQL', 3],
+            ['SQLite', 2],
+            ['MongoDB', 2],
+            ['Firebase', 1],
         ],
     }
 ];
@@ -97,6 +111,9 @@ const Skills = () => {
                     <Box margin='32px' display={['none', 'block']}><KotlinIcon width='128px' fill={iconColor} /></Box>
                     <Box margin='32px' display={['none', 'block']}><RubyIcon width='128px' fill={iconColor} /></Box>
                     <Box margin='32px' display={['none', 'block']}><RailsIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><CypressIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><ElixirIcon width='128px' fill={iconColor} /></Box>
+                    <Box margin='32px' display={['none', 'block']}><ExpressIcon width='128px' fill={iconColor} /></Box>
                     <Box margin='32px' display={['none', 'block']}><StyledComponentsIcon width='128px' fill={iconColor} /></Box>
                     <Box margin='32px' display={['none', 'block']}><ChakraUiIcon width='128px' fill={iconColor} /></Box>
                 </Flex>

@@ -202,7 +202,7 @@ const Experience = () => {
                 </Accordion>
                 <Divider marginTop='56px' />
                 <Flex justifyContent='center' margin='56px 0 32px'>
-                    <Button as='a' bgColor={primary} color='white' _hover={{ bg: btnHover }} href={'/Jon_Prell_Resume.pdf'}>
+                    <Button as='a' bgColor={primary} color='white' _hover={{ bg: btnHover }} href={'/Jon_Prell_Resume.pdf'} target="_blank">
                         <DownloadIcon h={6} w={6} paddingRight='8px' />
                         Download Resume
                     </Button>

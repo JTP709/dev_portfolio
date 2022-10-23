@@ -15,6 +15,7 @@ import {
     Tag,
     Text,
     Container,
+    useBreakpointValue,
   } from '@chakra-ui/react'
 import Image from 'next/image';
 import useThemeColors from '../hooks/useThemeColors';
@@ -72,6 +73,7 @@ const projects = [
 
 const Work = () => {
     const { primary, secondary, btnHover } = useThemeColors();
+    const modalSize = useBreakpointValue(['full', 'xl']);
     const [isOpen, setIsOpen] = useState<null |string>(null);
     const onClose = () => setIsOpen(null);
 
@@ -105,9 +107,9 @@ const Work = () => {
                                             onClick={() => setIsOpen(project.name)}
                                         >Learn More</Button>
                                     </Flex>
-                                    <Modal isOpen={isOpen === project.name} onClose={onClose} isCentered motionPreset='scale' size='xl'>
+                                    <Modal isOpen={isOpen === project.name} onClose={onClose} motionPreset='scale' size={modalSize}>
                                         <ModalOverlay />
-                                        <ModalContent>
+                                        <ModalContent maxW='1200px'>
                                         <ModalHeader>{ project.name }</ModalHeader>
                                         <ModalCloseButton />
                                         <ModalBody>
@@ -115,7 +117,7 @@ const Work = () => {
                                             <Heading as='h4' fontSize='1.2em' marginTop='32px'>{project.name}</Heading>
                                             <Box as='hr' width='64px' border={`2px solid`} borderRadius='12px' borderColor={primary} marginTop='16px' />
                                             <Text margin='32px 0'>{ project.description }</Text>
-                                            <Flex padding='24px 0 16px'>
+                                            <Flex padding='24px 0 16px' flexWrap='wrap'>
                                                 {
                                                     project.tech.map(tag => (
                                                         <Tag
